@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Callback Page</h1>
+
+  <script>
+    const hash = new URLSearchParams(window.location.hash.substring(1));
+    const idToken = hash.get("id_token");
+
+    document.body.innerHTML += "<p>Token: " + idToken + "</p>";
+  </script>
+</body>
+</html>

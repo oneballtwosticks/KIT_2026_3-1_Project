@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My SaaS</title>
+</head>
+<body>
+  <h1>Login Test SaaS</h1>
+
+  <button onclick="login()">Login</button>
+
+  <script>
+    const domain = "https://ap-northeast-2tztzoi5my.auth.ap-northeast-2.amazoncognito.com";
+    const clientId = "3pthcjpfpgid04dauvupj5sspd";
+    const redirect = "http://saas-275023965558-ap-northeast-2-an.s3-website.ap-northeast-2.amazonaws.com/callback.html";
+
+    function login() {
+      window.location.href =
+        `${domain}/login?client_id=${clientId}&response_type=token&scope=openid&redirect_uri=${encodeURIComponent(redirect)}`;
+    }
+  </script>
+</body>
+</html>
