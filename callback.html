@@ -1,11 +1,19 @@
-<script>
-  const hash = new URLSearchParams(window.location.hash.substring(1));
-  const idToken = hash.get("id_token");
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Callback</title>
+</head>
+<body>
+  <h1>Callback Page</h1>
 
-  if (!idToken) {
-    document.body.innerHTML = "<p>Login failed</p>";
-  } else {
-    localStorage.setItem("id_token", idToken);
-    window.location.href = "/";
-  }
-</script>
+  <pre id="output"></pre>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+
+    document.getElementById("output").innerText =
+      "Authorization Code: " + code;
+  </script>
+</body>
+</html>

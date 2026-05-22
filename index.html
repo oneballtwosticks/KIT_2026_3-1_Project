@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My SaaS</title>
+  <title>SaaS Login</title>
 </head>
 <body>
   <h1>Login Test SaaS</h1>
@@ -11,11 +11,18 @@
   <script>
     const domain = "https://ap-northeast-2tztzoi5my.auth.ap-northeast-2.amazoncognito.com";
     const clientId = "3pthcjpfpgid04dauvupj5sspd";
-    const redirect = "https://d84l1y8p4kdic.cloudfront.net";
+
+    const redirectUri =
+      "https://d84l1y8p4kdic.cloudfront.net/callback.html";
 
     function login() {
-      window.location.href =
-        `${domain}/login?client_id=${clientId}&response_type=token&scope=openid&redirect_uri=${encodeURIComponent(redirect)}`;
+      const url =
+        `${domain}/login?client_id=${clientId}` +
+        `&response_type=code` +
+        `&scope=openid+email+phone` +
+        `&redirect_uri=${encodeURIComponent(redirectUri)}`;
+
+      window.location.href = url;
     }
   </script>
 </body>
